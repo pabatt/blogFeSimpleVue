@@ -1,5 +1,5 @@
 <template>
-    <router-link :to="{ name: 'post', params: {id : index}}" :class="tile.type" class="tile">
+    <router-link :to="{ name: 'post', params: {id : tile.id}}" :class="tile.type" class="tile">
         <div class="tile__background" :style="{'background-image': 'url(https://picsum.photos/1200/320/?image=' + randomNumber}"></div>
         <h3 class="tile__title">{{tile.title}}</h3>
         <p class="tile__description">{{tile.description}}</p>
@@ -8,7 +8,7 @@
 
 <script>
     export default {
-        props: ['tile', 'index'],
+        props: ['tile'],
         data() {
             return {
             }

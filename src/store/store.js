@@ -11,12 +11,7 @@ export default new Vuex.Store({
     }, 
     getters: {
         getTiles: state => state.tiles,
-        getTileInfo: state => id => {
-            if (id > state.tiles.length-1) {
-                return false
-            }
-            return state.tiles[id]
-        }
+        getTileInfo: state => id => state.tiles.find(tile => tile.id === id)
 
     },
     actions: {

@@ -1,6 +1,6 @@
 <template>
     <div class="page-wrapper" v-if="tiles">
-        <tile  v-for="(tile, index) in tiles" :key="index" :tile="tile" :index="index"></tile>
+        <tile  v-for="tile in tiles" :key="tile.id" :tile="tile"></tile>
     </div>
     <div class="response_error" v-else>сервер не отвечает, пожалуйста попробуйте позже =(</div>
 </template>
