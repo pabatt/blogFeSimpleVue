@@ -11,7 +11,12 @@ export default new Vuex.Store({
     }, 
     getters: {
         getTiles: state => state.tiles,
-        getTileInfo: state => id => state.tiles[id-1]
+        getTileInfo: state => id => {
+            if (id > state.tiles.length-1) {
+                return false
+            }
+            return state.tiles[id]
+        }
 
     },
     actions: {
@@ -22,10 +27,11 @@ export default new Vuex.Store({
                     if (response.data.success) {
                         context.commit('loadTiles', response.data.tiles)
                     } else {
-                        console.log ('response error')
+                        context.commit('loadTiles', false);
                     }
                 })
                 .catch(er =>{
+                    context.commit('loadTiles', false);
                     console.log(er)
                 })
         }

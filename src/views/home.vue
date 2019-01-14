@@ -1,7 +1,8 @@
 <template>
-    <div class="page-wrapper">
-        <tile v-for="tile in tiles" :key="tile.id" :tile="tile"></tile>
+    <div class="page-wrapper" v-if="tiles">
+        <tile  v-for="(tile, index) in tiles" :key="index" :tile="tile" :index="index"></tile>
     </div>
+    <div class="response_error" v-else>сервер не отвечает, пожалуйста попробуйте позже =(</div>
 </template>
 
 <script>
@@ -30,4 +31,10 @@
         display: flex;
         flex-wrap: wrap;
     }
+
+    .response_error {
+            text-align: center;
+                max-width: 1000px;
+                margin: auto;
+        }
 </style>

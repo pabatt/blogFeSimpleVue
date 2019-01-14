@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "start": "node_modules/.bin/webpack-dev-server -d --progress --watch --inline --hot"
+    "start": "node_modules/.bin/webpack-dev-server -d --progress --watch --inline --hot --history-api-fallback"
   },
   "author": "REGRU LLC",
   "license": "ISC",

@@ -1,9 +1,12 @@
 <template>
-    <div class="post" :v-if="post">
-        <div class="post__wrapper">
+    <div class="post">
+        <div class="post__wrapper" v-if="postInfo">
             <p class="post__info">Статья №{{postInfo.id}}</p>
             <h1 class="post__title">{{postInfo.title}}</h1>
             <p class="post__text">{{postInfo.text}}</p>
+        </div>
+        <div class="post__wrapper" v-else>
+            <h1 class="post__title">Статья не найдена</h1>
         </div>
     </div>
 </template>
@@ -13,8 +16,6 @@
     export default {
         data() {
             return {
-                post: null,
-                
             }
         },
         computed: {
@@ -22,7 +23,9 @@
                 tileInfo : 'getTileInfo'
             }),
             postInfo(){
-                return this.tileInfo(this.$route.params.id)
+                if (this.tileInfo(this.$route.params.id)) {
+                    return this.tileInfo(this.$route.params.id)
+                }
             }
         },
         methods: {

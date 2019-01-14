@@ -3,6 +3,7 @@ import VueRouer from 'vue-router'
 import home from '../views/home.vue'
 import about from '../views/about.vue'
 import post from '../views/post.vue'
+import notFound from '../views/notFound.vue'
 
 Vue.use(VueRouer)
 
@@ -23,6 +24,10 @@ export default new VueRouer ({
             path: '/post:id',
             name: 'post',
             component: post 
-        }
+        },
+        { 
+            path: '*',
+            component: notFound
+        }, 
     ]
 })
